@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ServicoPrestado } from './servico-prestado/servicoPrestado';
 import { environment} from '../environments/environment'
 import { ServicoPrestadoBusca } from './servico-prestado/servico-prestado-lista/servicoPrestadoBusca';
-import { url } from 'inspector';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class ServicoPrestadoService {
 
     const httpParams = new HttpParams()
     .set("nome", nome)
-    .set("mes", mes ? mes.toString() : '');
+    .set("mes", mes.toString());
    
     
     const url = this.apiURL + "?" + httpParams.toString();

@@ -25,6 +25,11 @@ export class ClientesService {
 
 
   atualizar(cliente: Cliente): Observable<any> {
+    const tokenString = localStorage.getItem('access_token')
+    const token = JSON.parse(tokenString)
+    const headers = {
+      'Authorization' : 'Bearer ' + token.access_token
+    }
     return this.http.put<Cliente>(`${this.apiURL}/${cliente.id}`, cliente);
   }
 
